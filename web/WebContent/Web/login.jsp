@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>○○회사 웹사이트</h1>
-	<form>
+	<form action="./Info/loginInfo.jsp">
 		<div class="form-group">
 				<label class="sr-only">User Name</label>
 				<input name="id" class="form-control" placeholder="ID" required autofocus>
@@ -18,7 +18,7 @@
 				<input type="password" name="password" class="form-control" placeholder="Password" required>
 			</div>
 			<button class="btn btn-lg btn-success btn-block" type="submit">로그인</button>
-			<button class="btn btn-lg btn-secondary btn-block" type="button" onclick="location.href='addMember.jsp'">회원가입</button>
+			<button class="btn btn-lg btn-secondary btn-block" type="button" onclick="location.href='signUp.jsp'">회원가입</button>
 	</form>
 </body>
 </html>
