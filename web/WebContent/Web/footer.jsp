@@ -7,6 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>메인화면 푸터입니다</h1>
+	<div>
+		<footer>
+			<nav>
+              <a href='https://github.com/choijiyeon20/webDevelopment'>Github</a>
+          	</nav>
+          	<p>
+              <span>만든이 : 최지연</span><br/>
+              <span>웹 개발 직무 체험 페이지입니다.</span><br/>
+          	</p>
+		</footer>
+	</div>
 </body>
 </html>

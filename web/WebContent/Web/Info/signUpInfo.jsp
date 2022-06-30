@@ -2,6 +2,8 @@
     pageEncoding="utf-8"%>
 <%@page import="member.MemberDTO"%>
 <%@page import="member.MemberDAO"%>
+<%@ page import="java.util.*" %>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,10 +42,12 @@
 	if(dao.loginCheckId(id)){
 		out.println("<script>");
 		out.println("alert('아이디가 중복됩니다. 다른 아이디를 선택해주세요')");
+		response.sendRedirect("../signUp.jsp");
 		out.println("</script>");
+
 	}
 	else{
-		response.sendRedirect("../home.jsp");
+		response.sendRedirect("../home.jsp?Name="+name+ "&ID=" +id);
 	}
 %>
 </body>

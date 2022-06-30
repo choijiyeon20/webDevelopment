@@ -4,14 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인 홈</title>
+<title>게시판</title>
 </head>
 <body>
-
-	<%@include file ="header.jsp" %>
-    <section>
 	
-	</section>
-	<%@include file ="footer.jsp" %>
 </body>
 </html>

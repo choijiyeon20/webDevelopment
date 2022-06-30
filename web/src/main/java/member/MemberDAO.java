@@ -22,7 +22,7 @@ public class MemberDAO {
 		Connection conn = null;
 		
 		try {
-			conn=DriverManager.getConnection(url, "TEST_USER", "12345");
+			conn=DriverManager.getConnection(url, "WebD", "web");
 		}catch(SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Ä¿³Ø¼Ç½ÇÆÐ");
@@ -36,7 +36,7 @@ public class MemberDAO {
 		Connection conn=null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "insert INTO MEMBER(id, pw, name, phone_num, email, rank) values(?, ?, ?, ?, ?, ?)";
+		String sql = "insert INTO MEMBER(id, pw, name, phone, email, rank) values(?, ?, ?, ?, ?, ?)";
 		
 		conn=getConnection();
 		try {

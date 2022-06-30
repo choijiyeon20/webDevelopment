@@ -23,25 +23,27 @@
 	String serverPort = "1521";
 	String sid = "orcl";
 	String url = "jdbc:oracle:thin:@localhost:1521:XE";
-	String userName = "TEST_USER";
-	String userPassword = "12345";
+	String userName = "WebD";
+	String userPassword = "web";
 	conn = DriverManager.getConnection(url, userName, userPassword);
 	Statement st = conn.createStatement();
-	ResultSet rs = st.executeQuery("select * from MEMBER where id = '" + user_id + "' AND pwd ='" + user_pw + "'");
+	ResultSet rs = st.executeQuery("select * from MEMBER where id = '" + user_id + "' AND pw ='" + user_pw + "'");
 	Boolean check = false;
+	
 	while(rs.next()) // 결과값을 하나씩 가져와서 저장하기 위한 while문
 	{
-		String id = rs.getString("ID"); //DB에 있는 ID가져옴
-	    String name = rs.getString("NAME"); // 사용제 레벨 가져옴(필수 아님)
-	    ///session.setAttribute("user_id", id); //DB값을 세션에 넣음
-		///session.setAttribute("user_name", name); // 세션에 레벨값 넣음
+		String id = rs.getString("id"); //DB에 있는 ID가져옴
+		String pw = rs.getString("pw"); //DB에 있는 pw가져옴
+		String name = rs.getString("name"); // 사용제 이름 가져옴(필수 아님)
+
 		check = true;	
 	}
 	if(check){ //ID,PW가 DB에 존재하는 경우 게시판으로 이동하는 코드 
 	%> 
 	 		<script>
-	  		document.location.href='../home.jsp'
-	 		</script> <%
+	  		document.location.href="../home.jsp?Name="+name;
+	 		</script> 
+	 		<%
 	    	rs.close();
 	       	conn.close();
 		}   else  { //ID,PW가 일치하지 않는 경우
