@@ -8,9 +8,10 @@
 </head>
 <body>
 	<div>
+		<hr>
 		<footer>
 			<nav>
-              <a href='https://github.com/choijiyeon20/webDevelopment'>Github</a>
+              링크 이동: <a href='https://github.com/choijiyeon20/webDevelopment'>Github</a>
           	</nav>
           	<p>
               <span>만든이 : 최지연</span><br/>

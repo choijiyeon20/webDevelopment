@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
 <title>회원가입</title>
 </head>
 <body>
@@ -33,7 +34,9 @@
 		</select>
 		<br/>
 		직급:<input type="text" name="rank"><br/>
+		<input type="button" onClick="location.href='login.jsp'" value="취소">
 		<input type="submit" value="회원가입">
+		
 		
 	</form>
 </body>

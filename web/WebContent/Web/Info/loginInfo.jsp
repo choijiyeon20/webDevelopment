@@ -29,21 +29,19 @@
 	Statement st = conn.createStatement();
 	ResultSet rs = st.executeQuery("select * from MEMBER where id = '" + user_id + "' AND pw ='" + user_pw + "'");
 	Boolean check = false;
-	
+	String id=""; 
+	String pw="";
+	String name="";
 	while(rs.next()) // 결과값을 하나씩 가져와서 저장하기 위한 while문
 	{
-		String id = rs.getString("id"); //DB에 있는 ID가져옴
-		String pw = rs.getString("pw"); //DB에 있는 pw가져옴
-		String name = rs.getString("name"); // 사용제 이름 가져옴(필수 아님)
+		id = rs.getString("id"); //DB에 있는 ID가져옴
+		pw = rs.getString("pw"); //DB에 있는 pw가져옴
+		name = rs.getString("name"); // 사용자 이름 가져옴
 
 		check = true;	
 	}
 	if(check){ //ID,PW가 DB에 존재하는 경우 게시판으로 이동하는 코드 
-	%> 
-	 		<script>
-	  		document.location.href="../home.jsp?Name="+name;
-	 		</script> 
-	 		<%
+			response.sendRedirect("../home.jsp?Name="+name+"&ID="+id);
 	    	rs.close();
 	       	conn.close();
 		}   else  { //ID,PW가 일치하지 않는 경우

@@ -39,7 +39,7 @@ public class BoardDAO {
 		
 		conn=getConnection();
 		
-		String sql="INSERT INTO Board(post_num, write, title, content, write_date) VALUES(?,?,?,?,sysdate)";
+		String sql="INSERT INTO Board(post_num, writer, title, content, write_date) VALUES(?,?,?,?,sysdate)";
 		try {
 			
 			// 1) 쿼리문장분석 2) 컴파일 3) 실행
@@ -65,7 +65,7 @@ public class BoardDAO {
 		pstmt = null;
 		
 		conn=getConnection();
-		String SQL="SELECT post_num, write, title, content, write_date FROM Board WHERE post_num=?";
+		String SQL="SELECT post_num, writer, title, content, write_date FROM Board WHERE post_num=?";
 		
 		try {
 			PreparedStatement pstmt=conn.prepareStatement(SQL);
@@ -87,7 +87,7 @@ public class BoardDAO {
 		return null;
 	}
 	
-	public List<BoardDTO> getAllPostDatas(){
+	public List<BoardDTO> getAllBoardDatas(){
 		List<BoardDTO> list = new ArrayList<>();
 		
 		Connection conn=null;
@@ -106,8 +106,8 @@ public class BoardDAO {
 				
 				dto.setPost_num(rs.getInt("post_num"));
 				dto.setWriter(rs.getString("writer"));
-				dto.setTitle(rs.getString("post_title"));
-				dto.setContent(rs.getString("post_content"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
 				dto.setWrite_date(rs.getString("write_date"));
 				list.add(dto);	
 			}
@@ -115,5 +115,23 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	public int getBoardCount() {
+		int count=0;
+		conn=null;
+		pstmt = null;
+		
+		conn=getConnection();
+		String SQL="select count(*) from board";
+		try {
+			pstmt=conn.prepareStatement(SQL);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}	
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return count;
 	}
 }
