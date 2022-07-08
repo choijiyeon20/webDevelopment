@@ -31,7 +31,7 @@
 					<ul class="navbar">
 		    			<li><a href="home.jsp?Name=<%=name%>&ID=<%=id%>">홈</a></li>
 		    			<li><a href="board.jsp?Name=<%=name%>&ID=<%=id%>">자유 게시판</a></li>
-		    			<li><a href="#">자료 취합 게시판</a></li>
+		    			<li><a href="fileBoard.jsp?Name=<%=name%>&ID=<%=id%>">자료 취합 게시판</a></li>
 	    			</ul>
     			</nav>
 			</div>
