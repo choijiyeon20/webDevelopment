@@ -59,6 +59,14 @@
 				<br>
 				<hr>
 				<div style="text-align:right;">
+				<%
+					if(id.equals(dto.getWriter())){
+						%>
+							<input type="button"  onClick="location.href='postUpdate.jsp?Name=<%=name%>&ID=<%=id%>&Num=<%=dto.getPost_num()%>'" value="수정하기">
+							<input type="button" onClick="location.href='./Info/postDeleteInfo.jsp?Name=<%=name%>&ID=<%=id%>&Num=<%=dto.getPost_num()%>'" value="삭제하기">
+						<%
+					}
+				%>
 					<input type="button"  onClick="location.href='board.jsp?Name=<%=name%>&ID=<%=id%>'" value="목록으로 돌아가기">
 					<input type="button" onClick="location.href='postWrite.jsp?Name=<%=name%>&ID=<%=id%>'" value="글쓰기">
 				</div>

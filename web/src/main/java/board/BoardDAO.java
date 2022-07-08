@@ -134,4 +134,37 @@ public class BoardDAO {
 		}
 		return count;
 	}
+	
+	public void update(String code, String title, String content) {
+		conn=null;
+		pstmt = null;
+		
+		conn=getConnection();
+		String SQL="UPDATE board SET title = ?, content = ? WHERE post_num = ?";
+		try {
+			pstmt=conn.prepareStatement(SQL);
+			pstmt.setString(1, title);
+			pstmt.setString(2, content);
+			pstmt.setString(3, code);
+			rs=pstmt.executeQuery();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void delete(int code) { // bbsAvailable = 0 하면 삭제처리됨
+		conn=null;
+		pstmt = null;
+		
+		conn=getConnection();
+		
+        String SQL = "delete from board WHERE post_num = ?";
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(SQL); // conn객체를 이용 SQL문장을 실행준비로 만듬
+            pstmt.setInt(1,  code);
+            pstmt.executeUpdate(); // 성공적으로 수행시 0이상의 값을 반환
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }   
 }
