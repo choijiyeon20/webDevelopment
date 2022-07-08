@@ -20,7 +20,7 @@
 	<section>
 	<h2 class="subtitle" style="padding-top:50px !important; ">자료 통합 게시글 쓰기</h2>
 <div>
-	<form action="./Info/writeInfo.jsp">
+	<form action="./Info/fileWriteInfo.jsp">
     	<input type="hidden" id="ID" name="ID" value="<%=id%>">
     	<input type="hidden" id="Name" name="Name" value="<%=name %>">
     	<p>

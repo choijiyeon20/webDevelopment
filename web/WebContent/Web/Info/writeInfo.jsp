@@ -17,7 +17,6 @@
 	String writer = request.getParameter("ID");
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
-	System.out.println(writer+name);
 	
 	BoardDTO dto=new BoardDTO();
 	BoardDAO dao = new BoardDAO();

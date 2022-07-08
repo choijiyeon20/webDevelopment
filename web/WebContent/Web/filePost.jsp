@@ -24,7 +24,7 @@
 	<jsp:param name="ID" value="<%=id%>"/>  
 	</jsp:include>
 	<section>
-	<h2 class="subtitle" style="padding-top:50px !important; ">게시글</h2>
+	<h2 class="subtitle" style="padding-top:50px !important; ">자료 취합 게시글</h2>
 <%
 					
 					FileBoardDTO dto = new FileBoardDAO().getPost(num);
