@@ -2,6 +2,8 @@
     pageEncoding="utf-8"%>
 <%@page import="fileBoard.FileBoardDTO"%>
 <%@page import="fileBoard.FileBoardDAO"%>
+<%@page import="fileList.FileListDTO"%>
+<%@page import="fileList.FileListDAO"%>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
@@ -68,6 +70,55 @@
 					<input type="button"  onClick="location.href='fileBoard.jsp?Name=<%=name%>&ID=<%=id%>'" value="목록으로 돌아가기">
 					<input type="button" onClick="location.href='filePostWrite.jsp?Name=<%=name%>&ID=<%=id%>'" value="글쓰기">
 				</div>
+				<hr>
+				<br>
+				<form action="./Info/fileListInfo.jsp">
+					<table style="text-align: center; border: 1px solid #dddddd; width:100%;" >
+						<tr>	
+							<input type="hidden" id="ID" name="ID" value="<%=id%>">
+    						<input type="hidden" id="Name" name="Name" value="<%=name %>">
+    						<input type="hidden" id="Num" name="Num" value="<%=num %>">
+							<td><input type="text" style="height:50px; width:700px;" class="form-control" placeholder="파일 설명을 남겨주세요." name="context">
+								<input type="file" name="file">
+							</td>
+							<td><br><br><input type="submit"  value="파일 올리기"></td>
+						</tr>
+					</table>
+				</form>
+				<hr>
+				<table style="text-align: center; border: 1px solid #dddddd; width:100%;">
+					<tbody>
+						<tr>
+							<td>자료 취합 목록</td>
+						</tr>
+					<tr>
+						<%
+							FileListDAO cdao = new FileListDAO();
+							List<FileListDTO> result = cdao.fileSet(Integer.parseInt(num));
+							for(int i=0; i<result.size(); i++){
+						%>
+						<div class="container">
+							<div class="row">
+								<table  style="text-align: center; border: 1px solid #dddddd">
+									<tbody>
+										<tr>
+											<tr>
+												<td><%=result.get(i).getSubmit_id()%></td>
+												<td rowspan="2" style="padding:30px;"><%=result.get(i).getFile_name() %></td>
+											</tr>
+											<tr>
+												<td style="width: 10%;"><%=result.get(i).getSub_date() %></td>
+											</tr>
+										</tr>
+									</tbody>
+								</table>			
+							</div>
+						</div>
+						<%
+							}
+						%>
+				</tr>
+				</table>
 	</section>
 	<%@include file ="footer.jsp" %>				
 </body>
