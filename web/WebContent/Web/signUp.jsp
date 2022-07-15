@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ page import="company.CompanyDAO"%>
+<%@ page import="company.CompanyDTO"%>
+<%@ page import="java.util.*" %>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +13,11 @@
 </head>
 <body>
 	<h1>회원가입</h1>
+	<%
+		CompanyDAO dao = new CompanyDAO();
+		
+		List<CompanyDTO> result = dao.getAllBoardDatas();
+	%>
 	<form action="./Info/signUpInfo.jsp" method="post" enctype="multipart/form-data">
 		아이디:<input type="text" name="id"><br/>
 		비밀번호:<input type="password" name="pw"><br/>
@@ -33,7 +42,13 @@
 			<option>kakao.com</option>
 		</select>
 		<br/>
-		직급:<input type="text" name="rank"><br/>
+		회사 : <select name="rank" id="rank" >
+			<%for(int i=0; i< result.size(); i++){%>
+				<option value=<%=result.get(i).getCompany_name()%>><%=result.get(i).getCompany_name()%></option>
+			<%	 
+			} 
+			%>
+			</select>
 		<input type="button" onClick="location.href='login.jsp'" value="취소">
 		<input type="submit" value="회원가입">
 		

@@ -17,7 +17,7 @@
 		String name=request.getParameter("Name");
 		String id=request.getParameter("ID");
 		String num=request.getParameter("Num");
-		System.out.println(num);
+		//System.out.println(num);
 	%>
 	<jsp:include page="./header.jsp">  
 	<jsp:param name="Name" value="<%=name %>"/>  
@@ -52,7 +52,15 @@
 					     <tr>
 					     	<td>내용</td>
 					     	<td><%=dto.getContent() %></td>
-					     </tr>				    
+					     </tr>		
+					     <tr>
+					     	<td style="width: 10%;  height: 10%;">파일 취합대상</td>
+					     	<td><%=dto.getCompany_name() %></td>
+					     </tr>		
+						<tr>
+					     	<td style="width: 10%;  height: 10%;">제출기한</td>
+					     	<td><%=dto.getDeadline() %></td>
+					     </tr>    
 				</table>
 				<br>
 				<hr>

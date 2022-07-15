@@ -7,16 +7,14 @@ public class FileBoardDTO {
 	private String content;
 	private String write_date;
 	private String deadline;
-	private String file_name;
-	private String path;
-	private int file_size;
+	private String company_name;
 	
 	public FileBoardDTO() {
 		
 	}
 
 	public FileBoardDTO(int post_num, String writer, String title, String content, String write_date, String deadline,
-			String path, int file_size) {
+			String company_name) {
 		super();
 		this.post_num = post_num;
 		this.writer = writer;
@@ -24,8 +22,7 @@ public class FileBoardDTO {
 		this.content = content;
 		this.write_date = write_date;
 		this.deadline = deadline;
-		this.path = path;
-		this.file_size = file_size;
+		this.company_name = company_name;
 	}
 
 	public int getPost_num() {
@@ -76,28 +73,12 @@ public class FileBoardDTO {
 		this.deadline = deadline;
 	}
 
-	public String getFile_name() {
-		return file_name;
+	public String getCompany_name() {
+		return company_name;
 	}
 
-	public void setFile_name(String file_name) {
-		this.file_name = file_name;
-	}
-
-	public String getPath() {
-		return path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
-	}
-
-	public int getFile_size() {
-		return file_size;
-	}
-
-	public void setFile_size(int file_size) {
-		this.file_size = file_size;
+	public void setCompany_name(String company_name) {
+		this.company_name = company_name;
 	}
 	
 	

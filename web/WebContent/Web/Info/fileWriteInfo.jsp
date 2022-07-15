@@ -18,7 +18,7 @@
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
 	String deadline = request.getParameter("deadline");
-	String file_name = request.getParameter("file_name");
+	String company_name = request.getParameter("company_name");
 	
 	FileBoardDTO dto=new FileBoardDTO();
 	FileBoardDAO dao = new FileBoardDAO();
@@ -26,6 +26,8 @@
 	dto.setWriter(writer);
 	dto.setTitle(title);
 	dto.setContent(content);
+	dto.setDeadline(deadline);
+	dto.setCompany_name(company_name);
 	
 	
 	dao.write(dto);

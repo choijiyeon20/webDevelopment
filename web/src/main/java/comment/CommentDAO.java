@@ -111,5 +111,4 @@ public class CommentDAO {
 		return count;
 	}
 	
-
 }

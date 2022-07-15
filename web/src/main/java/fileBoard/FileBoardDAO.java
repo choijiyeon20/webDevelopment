@@ -46,7 +46,7 @@ public class FileBoardDAO {
 		
 		conn=getConnection();
 		
-		String sql="INSERT INTO fileBoard(post_num, writer, title, content, write_date, deadline, file_name, path, file_size) VALUES(?,?,?,?,sysdate,?,?,?,?)";
+		String sql="INSERT INTO fileBoard(post_num, writer, title, content, write_date, deadline, company_name) VALUES(?,?,?,?,sysdate,?,?)";
 		try {
 			
 			// 1) 쿼리문장분석 2) 컴파일 3) 실행
@@ -60,9 +60,7 @@ public class FileBoardDAO {
 			pstmt.setString(3, dto.getTitle());
 			pstmt.setString(4, dto.getContent());
 			pstmt.setString(5, dto.getDeadline());
-			pstmt.setString(6, dto.getFile_name());
-			pstmt.setString(7, dto.getPath());
-			pstmt.setInt(8, dto.getFile_size());
+			pstmt.setString(6, dto.getCompany_name());
 			
 			pstmt.executeUpdate();
 			
@@ -76,7 +74,7 @@ public class FileBoardDAO {
 		pstmt = null;
 		
 		conn=getConnection();
-		String SQL="SELECT post_num, writer, title, content, write_date, deadline, file_name, path, file_size FROM fileBoard WHERE post_num=?";
+		String SQL="SELECT post_num, writer, title, content, write_date, deadline, company_name FROM fileBoard WHERE post_num=?";
 		
 		try {
 			PreparedStatement pstmt=conn.prepareStatement(SQL);
@@ -90,9 +88,7 @@ public class FileBoardDAO {
 				post.setContent(rs.getString(4));
 				post.setWrite_date(rs.getString(5));
 				post.setDeadline(rs.getString(6));
-				post.setFile_name(rs.getString(7));
-				post.setPath(rs.getString(8));
-				post.setFile_size(rs.getInt(9));
+				post.setCompany_name(rs.getString(7));
 				return post;
 			}
 			
@@ -124,6 +120,8 @@ public class FileBoardDAO {
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
 				dto.setWrite_date(rs.getString("write_date"));
+				dto.setDeadline(rs.getString("deadline"));
+				dto.setCompany_name(rs.getString("company_name"));
 				list.add(dto);	
 			}
 		}catch(SQLException e) {
