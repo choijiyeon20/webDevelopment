@@ -20,6 +20,7 @@
 	String id = request.getParameter("ID");
 	String name = request.getParameter("Name");
 	String content = request.getParameter("context");
+	String file_name = request.getParameter("file");
 	
 	
 	FileListDTO dto=new FileListDTO();
@@ -27,10 +28,10 @@
 	
 	dto.setFile_num(dao.getFileListCount()+1);
 	dto.setPost_num(Integer.parseInt(num));
-	dto.setFile_name("");
+	dto.setFile_name(file_name);
 	
 	dao.write(dto);
-	response.sendRedirect("../board.jsp?Name="+name+"&ID="+id);
+	response.sendRedirect("../fileBoard.jsp?Name="+name+"&ID="+id);
 
 %>
 </body>

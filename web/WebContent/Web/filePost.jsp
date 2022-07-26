@@ -103,7 +103,7 @@
 									<tbody>
 										<tr>
 											<tr>
-												<td><%=result.get(i).getSubmit_id()%></td>
+												<td><%=result.get(i).getSubmit_id() %></td>
 												<td rowspan="2" style="padding:30px;"><%=result.get(i).getFile_name() %></td>
 											</tr>
 											<tr>

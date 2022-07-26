@@ -74,7 +74,6 @@ public class FileListDAO {
 			int post_num = rs.getInt("post_num");
 			String file_name = rs.getString("file_name");
 			String path = rs.getString("path");
-			String content = rs.getString("comment_content");
 			int file_size = rs.getInt("file_size");
 			String sub_date = rs.getString("sub_date");
 			String submit_id = rs.getString("submit_id");
@@ -91,7 +90,7 @@ public class FileListDAO {
 			conn=null;
 			pstmt = null;
 			conn = getConnection();
-			String sql="select * from filelist where file_num like ?";
+			String sql="select * from filelist where post_num like ?";
 			//System.out.println(sql);
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);

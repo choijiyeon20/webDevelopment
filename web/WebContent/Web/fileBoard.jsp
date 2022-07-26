@@ -46,7 +46,6 @@
 							 <td><a href="filePost.jsp?Name=<%=name%>&ID=<%=id%>&Num=<%=result.get(i).getPost_num() %>"><%=result.get(i).getTitle() %></a></td>
 						     <td><%=result.get(i).getWrite_date() %></td>
 						     <td><%=result.get(i).getWriter() %></td>
-						     <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;max-width:280px; padding:20px;"><%=result.get(i).getContent() %></td>
 						     </tr>
 						<%	 
 						} 
